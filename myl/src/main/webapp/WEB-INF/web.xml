@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+       http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+
+	<display-name>MYL</display-name>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>myl</param-value>
+	</context-param>	
+
+
+	<!-- Filtros -->
+	<!-- Filtro que permite remover el JSessionId en caso de que este haya sido 
+		agregada a la URL por no tener habilitado el uso de cookies. No hacer esto 
+		puede representar problemas de seguridad -->
+	<!-- <filter>
+		<filter-name>UrlRewriteFilter</filter-name>
+		<filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+		<init-param>
+			<param-name>logLevel</param-name>
+			<param-value>WARN</param-value>
+		</init-param>
+	</filter> -->
+	<!-- Permite cargar objetos que tienen definida la carga 'perezosa' de Hibernate 
+		evitando con ello tener que abrir sesiones para cada objeto asociado -->
+	<filter>
+		<filter-name>openSessionInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
+		<init-param>
+			<param-name>flushMode</param-name>
+			<param-value>ALWAYS</param-value>
+		</init-param>
+		<init-param>
+			<param-name>sessionFactoryBeanName</param-name>
+			<param-value>sessionFactory</param-value>
+		</init-param>
+		<init-param>
+			<param-name>singleSession</param-name>
+			<param-value>false</param-value>
+		</init-param>
+	</filter>
+	
+	<filter>
+        <filter-name>struts-prepare</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>sitemesh</filter-name>
+        <filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>struts-execute</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsExecuteFilter</filter-class>
+    </filter>
+    
+	<filter>
+		<filter-name>charsetFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+
+	
+	
+
+	<!-- Filtros -->
+
+	<!-- Mapeos de filtros -->
+	<!-- Se mapea el filtro para reescribir la url y esta es aplicada para cualquier 
+		url que venga directamente del cliente -->
+	<!-- <filter-mapping>
+		<filter-name>UrlRewriteFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping> -->
+	<!-- Se mapea el filtro que permite abrir sesiones durante una petición 
+		para obtener que no son cargados mediante el dao -->
+	<filter-mapping>	    
+	<filter-name>openSessionInViewFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+        <filter-name>struts-prepare</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>sitemesh</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>struts-execute</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+	<filter-mapping>
+		<filter-name>charsetFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- Mapeos de filtros -->
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+
+<!-- <servlet>
+		<servlet-name>wsChat</servlet-name>
+		<servlet-class>com.myl.util.WebSocketCharServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>wsChat</servlet-name>
+		<url-pattern>/chatws</url-pattern>
+	</servlet-mapping> -->
+	
+	<!-- <servlet>
+		<servlet-name>wsLobby</servlet-name>
+		<servlet-class>com.myl.util.WebSocketLobbyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>wsLobby</servlet-name>
+		<url-pattern>/lobbyws</url-pattern>
+	</servlet-mapping> -->
+
+	
+	<!-- Welcome file lists -->
+	<welcome-file-list>
+		<welcome-file>/pages/login.jsp</welcome-file>
+	</welcome-file-list>
+
+</web-app>

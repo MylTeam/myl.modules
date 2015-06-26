@@ -1,0 +1,47 @@
+v1.0
+	-Myl
+v1.1
+	-Agregada la opción para enviar comentarios
+v1.2
+	-Se corrige el armado de los mazos, manteniendo el estado actual cuando se presenta un error al guardar.
+	-Se agrega la restricción para los formatos de mazo.
+	-Se agrega la etiqueta de formato de mazo en el chat.
+	-BugFix: Se corrige el error al intentar eliminar un mazo.
+v1.3
+	-Se agrega Furia
+	-BugFix: Se corrige el error al intentar colocar un mazo como predeterminado.
+	-La arena de duelo se abre en una nueva ventana
+	-Se agregan notificaciones cuando un usuario abandona o reinicia el juego.
+v1.4
+	-BugFix: Se corrige el error que muestra la notificación de otros usuarios abandonando las partidas.
+	-Se regresa al estilo de cambio de ventana.
+v1.45
+	-Se agrega más detalle al perfil del usuario
+	-Se agrega la opción para recuperar contraseña
+v1.5
+	-Se valida el tamaño del mazo antes de entrar a jugar.
+	-Se agrega la sala de chat general
+v1.6
+	-Se modifica la sección de reglas y ayuda
+	-Se añade mas detalle al botar x cartas, indicando cuantas cartas han sido botadas.
+	-Se indica cuando el mazo castillo ya no tiene mas cartas.
+	-Se agregan notificaciones de victoria y derrota.
+v1.7
+	-Se agregan marcadores de victoria y derrota.
+	-Se agrega el ranking con los 100 mejores jugadores.
+	-Se agregan estadísticas para el usuario.
+	-Se agrega conexión con twitter para visualizar noticias.
+v1.8
+	-BugFix: Se arregla el error al tratar de enviar un comentario.
+	-BugFix: Se arregla el problema de la conexiones.
+	-BugFix: Se arregla la pérdida de conexión al mostrar el mazo al oponente.
+v1.85
+	-BugFix: Se corrige el error al quedarse sin cartas, se notifica el juego perdido.
+	-Añadido: Contador de mazo
+v1.86
+	-Se modifica el chat para identificar los movimientos de cada jugador.
+	-Se indica desde y hacia donde se mueven las cartas.
+v1.9
+	-Se arreglan varios bugs
+	-BugFix: Se corrige el error al tomar el control de las cartas del oponente.
+	

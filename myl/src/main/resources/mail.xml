@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+<!-- Bean que inicializa el envío de correos -->
+	<bean id="mailSender" class="com.myl.util.IssueMail">
+		<property name="mailSender" ref="mailSenderImpl" />
+		<property name="mailSender1" ref="mailSenderImpl1" />
+		<property name="mailSender2" ref="mailSenderImpl2" />
+		<property name="mailSender3" ref="mailSenderImpl3" />
+		<property name="mailSender4" ref="mailSenderImpl4" />
+		<property name="mailSender5" ref="mailSenderImpl5" />
+		<property name="mailSenderErr" ref="mailSenderImplErr" />
+		<property name="mailSenderCom" ref="mailSenderImplCom" />		
+	</bean>
+	
+	<!-- Bean que define un correo -->
+	<bean id="mailSenderImpl" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${mail.host.gmail}" />
+		<property name="port" value="${mail.port}" />
+		<property name="username" value="${mail.username}" />
+		<property name="password" value="${mail.password}" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- Bean que define un correo -->
+	<bean id="mailSenderImpl1" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${mail.host.outlook}" />
+		<property name="port" value="${mail.port}" />
+		<property name="username" value="${mail.confirm1}" />
+		<property name="password" value="${mail.pass1}" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- Bean que define un correo -->
+	<bean id="mailSenderImpl2" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${mail.host.outlook}" />
+		<property name="port" value="${mail.port}" />
+		<property name="username" value="${mail.confirm2}" />
+		<property name="password" value="${mail.pass2}" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- Bean que define un correo -->
+	<bean id="mailSenderImpl3" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${mail.host.outlook}" />
+		<property name="port" value="${mail.port}" />
+		<property name="username" value="${mail.confirm3}" />
+		<property name="password" value="${mail.pass3}" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- Bean que define un correo -->
+	<bean id="mailSenderImpl4" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${mail.host.outlook}" />
+		<property name="port" value="${mail.port}" />
+		<property name="username" value="${mail.confirm4}" />
+		<property name="password" value="${mail.pass4}" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- Bean que define un correo -->
+	<bean id="mailSenderImpl5" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${mail.host.outlook}" />
+		<property name="port" value="${mail.port}" />
+		<property name="username" value="${mail.confirm5}" />
+		<property name="password" value="${mail.pass5}" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- Bean que define un correo -->
+	<bean id="mailSenderImplErr" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${mail.host.gmail}" />
+		<property name="port" value="${mail.port}" />
+		<property name="username" value="${mail.errors}" />
+		<property name="password" value="${mail.password}" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- Bean que define un correo -->
+	<bean id="mailSenderImplCom" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${mail.host.gmail}" />
+		<property name="port" value="${mail.port}" />
+		<property name="username" value="${mail.comments}" />
+		<property name="password" value="${mail.password}" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+</beans>

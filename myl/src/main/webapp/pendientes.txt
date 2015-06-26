@@ -1,0 +1,37 @@
+LOBBY
+-mostrar formato
+-no entrar si el deck no tiene 50 cartas
+
+JUEGO
+
+
+
+
+-guardar victoria o derrota
+-incidencias
+-doble click de las cartas
+
+
+DECK
+
+-reglas: unicas, mercenarios
+
+-score
+
+formatos
+primer episodio: Espada sagrada - Hordas
+segundo episodio: Bestiario - Dominus
+tercer episodio: Inmortales - Vikingos
+ragnarok
+vintage
+imperio(2 bloques)
+bloques
+
+
+USUARIO
+ -mas datos
+ -score
+
+ADMINISTRACION
+-gestión de usuarios
+-gestion de decks

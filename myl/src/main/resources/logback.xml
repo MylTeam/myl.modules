@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Declara la configuración de logback como framework para Log -->
+
+<configuration>
+
+	<!-- Se define un appender para log en consola -->
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d %5p | %-55logger{55} | %m %n</pattern>
+		</encoder>
+	</appender>
+
+	
+	<!-- Se define un appender para log en archivo -->
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>logMyl.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      	<!-- daily rollover -->
+      	<fileNamePattern>logMyl.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+      	<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+      	    <maxFileSize>100MB</maxFileSize>
+      	</timeBasedFileNamingAndTriggeringPolicy>
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>30</maxHistory>
+    	</rollingPolicy>
+		<append>true</append>
+		<encoder>
+			<pattern>%d %5p | %-55logger{55} | %m %n</pattern>			
+		</encoder>
+	</appender>
+
+	<!-- Se define el nivel para el logger de Hibernate -->
+	<logger name="org.hibernate.type" level="ERROR" />
+	<logger name="org.hibernate" level="ERROR" />
+
+	<!-- Se define el nivel para el logger de Spring -->
+	<logger name="org.springframework" level="ERROR" />
+	
+	<!-- Se define el nivel para el logger de Struts -->	
+	<logger name="org.apache.struts2" level="ERROR" />
+
+	
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</root>
+</configuration>
